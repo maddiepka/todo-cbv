@@ -1,0 +1,9 @@
+<h1>My to do tasks</h1>
+
+{% if tasks %}
+    {% for task in tasks %}
+        <p> {{task.title}} </p>
+    {% endfor %}
+{% else %}
+<p>No tasks to do!</p>
+{% endif %}
