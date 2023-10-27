@@ -1,9 +1,20 @@
 <h1>My to do tasks</h1>
-
+<p>Add new one: <a href="{% url 'create-task' %}">Add</a></p>
 {% if tasks %}
-    {% for task in tasks %}
-        <p> {{task.title}} </p>
-    {% endfor %}
+
+    <table>
+        <tr>
+            <th>Tasks:</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td><a href="{% url 'task' task.id %}">{{task.title}}</a></td>
+            <td><a href="{% url 'update-task' task.id %}">Update</a></td>
+            <td><a href="{% url 'delete-task' task.id %}">Delete</a></td>
+
+        {% endfor %}
+    </table>
+
 {% else %}
 <p>No tasks to do!</p>
 {% endif %}
