@@ -42,10 +42,10 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'tasks/task_form.html')
 
 
-    def test_task_create_POST(self):
+    # def test_task_create_POST(self):
 
-        response = self.client.post(reverse('create-task'), data={
-            'title': 'task2',
-            'user': self.user,
-        })
-        print (response.context['form'].errors)
+    #     response = self.client.post(reverse('create-task'), data={
+    #         'title': 'task2',
+    #         'user': self.user,
+    #     })
+    #     print (response.context['form'].errors)

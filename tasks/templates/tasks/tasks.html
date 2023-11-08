@@ -1,4 +1,14 @@
-<h1>My to do tasks</h1>
+
+{% if request.user.is_authenticated %} 
+    <h2>Hello {{request.user}} </h2>
+    <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+<hr>
+
+<h1>My to do tasks {{task.count}}</h1>
 <p>Add new one: <a href="{% url 'create-task' %}">Add</a></p>
 {% if tasks %}
 
