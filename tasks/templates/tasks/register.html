@@ -10,7 +10,7 @@
       </div>
       <div class="right-col">
         <div class="top-box">
-          <p> Let's get things done! </p>
+          <p> Try it today and let's get things done!</p>
         </div>
         <div class="form-container">
           <form method="POST">
@@ -18,18 +18,17 @@
             <div class="field-group">
               <label for="username">username</label>
               <input type="text" id="username" name="username" placeholder="username">
-              <img src="./images/icon-error.svg" class="error-icon" alt="error-img">
-              <p class="error-text">Looks like this is not an email</p>
             </div>
             <div class="field-group">
-              <label for="password">password</label>
-              <input type="password" id="password" name="password" placeholder="password">
-              <img src="./images/icon-error.svg" class="error-icon" alt="error-img">
-              <p class="error-text">password cannot be empty</p>
+              <label for="password1">password</label>
+              <input type="password" id="password1" name="password1" placeholder="password">
             </div>
-            
-            <button type="submit">Login</button>
-            <p class="form-footer">Don't you have an account? <span><a href="{% url 'register' %}">Register</a></span> right here!
+            <div class="field-group">
+                <label for="password2">password</label>
+                <input type="password" id="password2" name="password2" placeholder="confirm password">
+            </div>
+            <button type="submit">Register</button>
+            <p class="form-footer">Have you already an account? <span><a href="{% url 'login' %}">Login</a></span> right here!
             </p>
           </form>
         </div>
@@ -38,3 +37,4 @@
   </section>
 
 {% endblock content%}
+

@@ -1,10 +1,36 @@
-<div>
+{% extends 'tasks/base.html'%}
+
+{% block content %}
+    
+<section id="task">
+    <div class="task-container">
+      <div class="task-col">
+        <div class="top-box">
+            <a href="{% url 'tasks' %}" role="button" class="back-btn">&#8592; Back</a>
+        </div>
+
+        <div class="form-container delete-container">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="field-group">
+                <label for="{{field.label}}">Are you sure you want to delete item: <i>{{task.title}}</i>?</label>
+
+            </div>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+{% endblock content%}
+
+<!-- <div>
     <form method="POST">
         {% csrf_token %}
         <p>Are you sure you want to delete item: <i>{{task.title}}</i></p>
         <input type="submit" value="Submit">
     </form>
 </div>
-
-
-<a href="{% url 'tasks' %}">Go back</a>
+ -->

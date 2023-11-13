@@ -1,10 +1,38 @@
-<div>
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit">
-    </form>
-</div>
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<section id="task">
+
+      <div class="task-col">
+        <div class="top-box">
+            <a href="{% url 'tasks' %}" role="button" class="back-btn">&#8592; Back</a>
+        </div>
+
+        <div class="form-container">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="field-group">
+                <label>{{form.title.label}}:</label>
+                <p>{{form.title}}</p>
+
+            </div>
+            <div class="field-group">
+                <label>{{form.description.label}}:</label>
+                <p>{{form.description}}</p>
+            </div>
+            <div>
+                <label>{{form.completed.label}}:</label>
+                <p>{{form.completed}}</p>
+            </div>
+            
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      
+      </div>
+  </section>
 
 
-<a href="{% url 'tasks' %}">Go back</a>
+
+{% endblock content %}
