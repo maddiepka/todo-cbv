@@ -15,18 +15,24 @@
         <div class="form-container">
           <form method="POST">
             {% csrf_token %}
-            <div class="field-group">
-              <label for="username">username</label>
-              <input type="text" id="username" name="username" placeholder="username">
-              <img src="./images/icon-error.svg" class="error-icon" alt="error-img">
-              <p class="error-text">Looks like this is not an email</p>
-            </div>
-            <div class="field-group">
-              <label for="password">password</label>
-              <input type="password" id="password" name="password" placeholder="password">
-              <img src="./images/icon-error.svg" class="error-icon" alt="error-img">
-              <p class="error-text">password cannot be empty</p>
-            </div>
+
+            {% if form.non_field_errors %}
+
+                {% for error in form.non_field_errors  %}
+                <p class="error-message">{{error}}</p>
+                {% endfor %}
+
+            {% endif %}
+
+            {% for field in form  %}
+                <p>{{field.label_tag}}</p>
+                {{field}}
+
+                {% for error in field.errors  %}
+                <p class="error-message">{{error}}</p>
+                {% endfor %}
+            
+            {% endfor %} 
             
             <button type="submit">Login</button>
             <p class="form-footer">Don't you have an account? <span><a href="{% url 'register' %}">Register</a></span> right here!

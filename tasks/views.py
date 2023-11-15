@@ -12,18 +12,19 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 
 from .models import Task
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserLoginForm
 
 # Create your views here.
 
 class LoginPage(LoginView):
     template_name = 'tasks/login.html'
     fields = '__all__'
+    form_class = UserLoginForm
+
     redirect_authenticated_user = True
 
     def get_success_url(self) -> str:
         return reverse_lazy('tasks')
-
 
 class RegisterPage(FormView):
     template_name = 'tasks/register.html'

@@ -20,10 +20,6 @@ a:hover {
     text-decoration: none;
 }
 
-.error-text, .error-icon {
-    display: none;
-}
-
 #intro {
     min-height: 100vh;
     width: 100%;
@@ -166,21 +162,6 @@ a:hover {
     color:hsl(154, 56%, 44%);
 }
 
-.error-icon {
-
-    position: absolute;
-    top: 28%;
-    right: 20px;
-}
-
-
-.error-text {
-    text-align: right;
-    font-size: 0.7rem;
-    font-style: italic;
-    color:hsl(0, 100%, 74%);
-    font-weight: 500;
-}
 
 .tasks-col .form-container {
     background-color: white;
@@ -473,6 +454,12 @@ a:hover {
 .delete-container button:hover {
     background-color: hsl(154, 74%, 51%);
     cursor: pointer;
+}
+
+.error-message {
+    color:red; 
+    font-size: 0.8rem; 
+    margin-bottom: 5px;
 }
 
 

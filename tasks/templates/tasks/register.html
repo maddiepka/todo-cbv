@@ -15,7 +15,7 @@
         <div class="form-container">
           <form method="POST">
             {% csrf_token %}
-            <div class="field-group">
+            <!-- <div class="field-group">
               <label for="username">username</label>
               <input type="text" id="username" name="username" placeholder="username">
             </div>
@@ -27,6 +27,24 @@
                 <label for="password2">password</label>
                 <input type="password" id="password2" name="password2" placeholder="confirm password">
             </div>
+             -->
+            {% if form.non_field_errors %}
+
+                {% for error in form.non_field_errors  %}
+                <p class="error-message">{{error}}</p>
+                {% endfor %}
+
+            {% endif %}
+
+            {% for field in form  %}
+                <p>{{field.label_tag}}</p>
+                {{field}}
+
+                {% for error in field.errors  %}
+                    <p class="error-message">{{error}}</p>
+                {% endfor %}
+            
+            {% endfor %} 
             <button type="submit">Register</button>
             <p class="form-footer">Have you already an account? <span><a href="{% url 'login' %}">Login</a></span> right here!
             </p>
