@@ -30,7 +30,7 @@ SECRET_KEY ='django-insecure-$qc*im%o7l+&qo7ehdn0=+7hn!-f!q631d5qa#5++r-r3v910g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'todoapp-tvod.onrender.com/']
 
 
 # Application definition
@@ -82,22 +82,6 @@ WSGI_APPLICATION = 'mytodo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASE_URL = os.getenv('DATABASE_URL')
-# DATABASES = {
-#     'default': dj_database_url.config(),
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'todo_db_vjcj',
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB.HOST'),
-#         'PORT': os.getenv('DB_PORT'),
-#     }
-# }
 
 DATABASES = {
     'default': {
