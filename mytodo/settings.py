@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY ='django-insecure-$qc*im%o7l+&qo7ehdn0=+7hn!-f!q631d5qa#5++r-r3v910g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == "True" 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "todoapp-tvod.onrender.com"]
 
@@ -82,13 +82,20 @@ WSGI_APPLICATION = 'mytodo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if not DEBUG:
+    DATABASE_URL = os.getenv('DATABASE_URL')
+    DATABASES = {
+        'default': dj_database_url.config(),
     }
-}
+
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # }
 
