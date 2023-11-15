@@ -333,7 +333,6 @@ a:hover {
     padding-top: 20px;
 }
 
-
 .task-col .form-container {
     background-color: white;
     padding: 30px;
@@ -445,7 +444,6 @@ a:hover {
     border: 1.3px solid hsl(246, 25%, 77%);
     padding-left: 0px;
     outline: none;
-    color: hsl(249, 10%, 26%);
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
