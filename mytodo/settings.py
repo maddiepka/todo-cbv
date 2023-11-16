@@ -28,9 +28,9 @@ SECRET_KEY =os.environ.get('SECRET_KEY', 'django-insecure-$qc*im%o7l+&qo7ehdn0=+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == "True" 
+DEBUG = os.environ.get('DEBUG', 'True') == 'True' 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "todoapp-tvod.onrender.com"]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1').split(",")
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'mytodo.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 if not DEBUG:
-    DATABASE_URL = os.getenv('DATABASE_URL')
+    DATABASE_URL = os.environ.get('DATABASE_URL')
     DATABASES = {
         'default': dj_database_url.config(),
     }
